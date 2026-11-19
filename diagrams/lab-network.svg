@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" font-family="Inter, DejaVu Sans, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#52606D"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="900" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="60" y="48" font-size="24" font-weight="700" fill="#1F2933">HomeLab network: isolated LabNet behind an OPNsense firewall</text>
+
+  <!-- Internet -->
+  <rect x="520" y="78" width="160" height="48" rx="24" fill="#F0F4F8" stroke="#7B8794" stroke-width="1.5"/>
+  <text x="600" y="108" font-size="16" font-weight="600" fill="#1F2933" text-anchor="middle">Internet</text>
+
+  <!-- Home router -->
+  <line x1="600" y1="126" x2="600" y2="166" stroke="#52606D" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="465" y="168" width="270" height="52" rx="8" fill="#F0F4F8" stroke="#7B8794" stroke-width="1.5"/>
+  <text x="600" y="191" font-size="16" font-weight="600" fill="#1F2933" text-anchor="middle">Home router</text>
+  <text x="600" y="210" font-size="13" fill="#52606D" text-anchor="middle">Home network (not part of the lab)</text>
+
+  <!-- Host container -->
+  <rect x="60" y="250" width="1080" height="610" rx="14" fill="#F8FAFC" stroke="#9AA5B1" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="84" y="280" font-size="16" font-weight="700" fill="#1F2933">Host PC · Windows · VMware Workstation Pro</text>
+  <text x="1116" y="280" font-size="13" fill="#52606D" text-anchor="end">i9-13900H · 32 GB RAM · 1 TB NVMe</text>
+
+  <line x1="600" y1="222" x2="600" y2="306" stroke="#52606D" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <!-- VMnet8 -->
+  <rect x="455" y="308" width="290" height="54" rx="27" fill="#FFFFFF" stroke="#7B8794" stroke-width="1.5"/>
+  <text x="600" y="331" font-size="15" font-weight="600" fill="#1F2933" text-anchor="middle">VMnet8 · VMware NAT</text>
+  <text x="600" y="350" font-size="12.5" fill="#52606D" text-anchor="middle">FW01's WAN gets its address here</text>
+
+  <!-- FW01 -->
+  <line x1="600" y1="362" x2="600" y2="398" stroke="#52606D" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <rect x="410" y="400" width="380" height="112" rx="10" fill="#FFF4E5" stroke="#E8590C" stroke-width="2"/>
+  <text x="600" y="428" font-size="18" font-weight="700" fill="#1F2933" text-anchor="middle">FW01 · OPNsense 26.7.9</text>
+  <text x="600" y="452" font-size="14" fill="#1F2933" text-anchor="middle">WAN: DHCP from VMnet8</text>
+  <text x="600" y="474" font-size="14" fill="#1F2933" text-anchor="middle">LAN: 10.10.50.1/24 (lab gateway)</text>
+  <text x="600" y="496" font-size="14" fill="#1F2933" text-anchor="middle">Firewall · DHCP 10.10.50.100–199</text>
+
+  <!-- LabNet bar -->
+  <line x1="600" y1="512" x2="600" y2="566" stroke="#52606D" stroke-width="1.5"/>
+  <text x="600" y="552" font-size="14" font-weight="600" fill="#2B5CC6" text-anchor="start" dx="12">LabNet · 10.10.50.0/24 · host-only, isolated</text>
+  <line x1="205" y1="568" x2="1005" y2="568" stroke="#2B5CC6" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Drops -->
+  <g stroke="#2B5CC6" stroke-width="2">
+    <line x1="205" y1="568" x2="205" y2="620"/>
+    <line x1="405" y1="568" x2="405" y2="620"/>
+    <line x1="605" y1="568" x2="605" y2="620"/>
+    <line x1="805" y1="568" x2="805" y2="620"/>
+    <line x1="1005" y1="568" x2="1005" y2="620"/>
+  </g>
+
+  <!-- Servers -->
+  <g font-size="14" text-anchor="middle" fill="#1F2933">
+    <rect x="115" y="620" width="180" height="112" rx="10" fill="#E7F0FF" stroke="#2B5CC6" stroke-width="1.5"/>
+    <text x="205" y="646" font-size="17" font-weight="700">DC01</text>
+    <text x="205" y="669">Windows Server 2025</text>
+    <text x="205" y="691" font-family="DejaVu Sans Mono, monospace" font-size="13.5">10.10.50.10</text>
+    <text x="205" y="713" fill="#52606D">AD DS · DNS</text>
+
+    <rect x="315" y="620" width="180" height="112" rx="10" fill="#E7F0FF" stroke="#2B5CC6" stroke-width="1.5"/>
+    <text x="405" y="646" font-size="17" font-weight="700">SIEM01</text>
+    <text x="405" y="669">Ubuntu Server 24.04</text>
+    <text x="405" y="691" font-family="DejaVu Sans Mono, monospace" font-size="13.5">10.10.50.20</text>
+    <text x="405" y="713" fill="#52606D">Wazuh SIEM</text>
+
+    <rect x="515" y="620" width="180" height="112" rx="10" fill="#E7F0FF" stroke="#2B5CC6" stroke-width="1.5"/>
+    <text x="605" y="646" font-size="17" font-weight="700">TOOLS01</text>
+    <text x="605" y="669">Ubuntu Server 24.04</text>
+    <text x="605" y="691" font-family="DejaVu Sans Mono, monospace" font-size="13.5">10.10.50.30</text>
+    <text x="605" y="713" fill="#52606D">osTicket · Nessus</text>
+
+    <rect x="715" y="620" width="180" height="112" rx="10" fill="#E9F7EF" stroke="#2F9E5B" stroke-width="1.5"/>
+    <text x="805" y="646" font-size="17" font-weight="700">WS01</text>
+    <text x="805" y="669">Windows 11 Education</text>
+    <text x="805" y="691" font-family="DejaVu Sans Mono, monospace" font-size="13.5">DHCP</text>
+    <text x="805" y="713" fill="#52606D">Workstation</text>
+
+    <rect x="915" y="620" width="180" height="112" rx="10" fill="#E9F7EF" stroke="#2F9E5B" stroke-width="1.5"/>
+    <text x="1005" y="646" font-size="17" font-weight="700">WS02</text>
+    <text x="1005" y="669">Windows 11 Education</text>
+    <text x="1005" y="691" font-family="DejaVu Sans Mono, monospace" font-size="13.5">DHCP</text>
+    <text x="1005" y="713" fill="#52606D">Workstation (clone)</text>
+  </g>
+
+  <!-- Notes -->
+  <text x="600" y="772" font-size="13.5" fill="#52606D" text-anchor="middle">The host has no adapter on LabNet and VMware's DHCP is off: the lab is managed from WS01, and all lab traffic leaves through FW01.</text>
+
+  <!-- Legend -->
+  <g font-size="13" fill="#1F2933">
+    <rect x="330" y="808" width="16" height="16" rx="3" fill="#E7F0FF" stroke="#2B5CC6"/>
+    <text x="354" y="821">Server (static IP)</text>
+    <rect x="510" y="808" width="16" height="16" rx="3" fill="#E9F7EF" stroke="#2F9E5B"/>
+    <text x="534" y="821">Workstation (DHCP)</text>
+    <rect x="700" y="808" width="16" height="16" rx="3" fill="#FFF4E5" stroke="#E8590C"/>
+    <text x="724" y="821">Firewall / gateway</text>
+  </g>
+</svg>

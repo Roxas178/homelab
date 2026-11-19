@@ -1,0 +1,31 @@
+# VMware VM files (never upload VMs, disks or memory dumps)
+*.vmx
+*.vmxf
+*.vmdk
+*.vmsd
+*.vmss
+*.vmem
+*.nvram
+*.lck/
+vmware*.log
+
+# Secrets and credentials
+*.key
+*.pem
+*.pfx
+*.p12
+*.kdbx
+*.ovpn
+.env
+*secret*
+*password*
+
+# Exports that may contain internal details
+*.pcap
+*.pcapng
+*.evtx
+
+# Windows and editor clutter
+Thumbs.db
+desktop.ini
+.vscode/
